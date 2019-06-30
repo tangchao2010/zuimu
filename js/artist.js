@@ -93,6 +93,7 @@ function findDimensions() //函数：获取尺寸
     } else if ((document.body) && (document.body.clientHeight)) {
         win_height = document.body.clientHeight;
     }
+    console.log(win_height);
 
     //通过深入Document内部对body进行检测，获取窗口大小
     if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
@@ -101,7 +102,21 @@ function findDimensions() //函数：获取尺寸
     }
 
     scaling_ratio = win_width / 1920;
+    scaling_ratio1200 = win_width / 1200;
+    if (scaling_ratio1200 > 1) {
+        document.getElementById("footer-container").style.zoom = 1;
+        document.getElementById("zm-index-tab").style.zoom = 1;
+        document.getElementById("leader-container").style.zoom = 1;
+    } else {
+        document.getElementById("footer-container").style.zoom = scaling_ratio1200;
+        document.getElementById("zm-index-tab").style.zoom = scaling_ratio1200;
+        document.getElementById("leader-container").style.zoom = scaling_ratio1200;
+    }
+
     document.getElementById("div_0").style.zoom = scaling_ratio;
+    document.getElementById("hezuofaxing-view").style.zoom = scaling_ratio;
+
+
     /*document.getElementById("div_top").style.zoom = scaling_ratio;
     document.getElementById("div_1").style.zoom = scaling_ratio;
     document.getElementById("div_2").style.zoom = scaling_ratio;

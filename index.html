@@ -51,7 +51,7 @@
     </div>
 </div>
 <!-- tang -->
-<div class="banner-container">
+<div id="zm-banner-container" class="banner-container">
     <div class="x-header">
         <div class="x-wrap">
             <div class="nav-mod">
@@ -159,7 +159,7 @@
 </div>
 
 <!--领导简介-->
-<div class="leader-container">
+<div id="leader-container" class="leader-container">
     <div class="zm-intro">
         <div class="zm-intro-content">
             <img src="./images/leader/title.png" alt="">
@@ -375,7 +375,7 @@
 </div>
 
 <!--最幕培训-->
-<div class="zm-index-tab">
+<div id="zm-index-tab" class="zm-index-tab">
     <div class="titleImg">
         <img src="./images/peixun/title.png" alt="">
     </div>
@@ -425,7 +425,7 @@
 <!--end-->
 
 <!--zm-影片-->
-<div class="hezuofaxing-view">
+<div id="hezuofaxing-view" class="hezuofaxing-view">
     <div class="hezuofaxing-title">
         <img src="./images/release/title.png" alt="">
     </div>
@@ -594,18 +594,33 @@
         });
 
         var h = $(window).height();
-        $('.top_vedio').css({
-            "height": h
-        });
-        $('.banner-container').css({
-            "height": h
-        });
+        var w = $(window).width();
+
+        if (w<1200 ) {
+            $('.top_vedio').css({
+                "width": "100%",
+                "overflow": "hidden"
+            });
+            $('#zm-banner-container').css({
+                "width": "100%",
+                "height": h
+            });
+        } else {
+            $('.top_vedio').css({
+                "height": h,
+                "overflow": "hidden"
+            });
+            $('#zm-banner-container').css({
+                "width": '100%',
+                "height": h,
+            });
+        }
+
 
         var zmheader = $('.x-header');
         var navH = zmheader.offset().top;
         $(window).scroll(function () {
             var scroH = $(this).scrollTop();
-            console.log(scroH,navH);
             if (scroH >= navH) {
                 zmheader.css({"position": "fixed", "top": 0, "zIndex": 999999});
                 zmheader.addClass("activeHeader")
@@ -817,7 +832,7 @@
 </script>
 
 <div class="x-footer">
-    <div class="footer-container">
+    <div id="footer-container" class="footer-container">
         <ul class="bigul">
             <li class="footerleft">
                 <p>国内领先的数字内容创新平台4516，以"数据和人才"为基石，集合互联网影视策划/出品/制作/宣传/发行/孵化/衍生/开发等优势能力和资源于一体。</p>
